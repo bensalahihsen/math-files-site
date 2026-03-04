@@ -1,10 +1,10 @@
 // Données des fichiers par bloc
 const filesData = {
     "Bloc1": ["cours1.pdf", "exercice1.docx"],
-    "Bloc2": ["controle1.pdf"],
-    "Bloc3": [],
-    "Bloc4": [],
-    "Bloc5": []
+    "Bloc2": ["cours2.pdf"],
+    "Bloc3": ["cours3.pdf"],
+    "Bloc4": ["cours4.pdf"],
+    "Bloc5": ["cours5.pdf"]
 };
 
 let currentBloc = null;
