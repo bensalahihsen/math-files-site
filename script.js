@@ -30,24 +30,36 @@ function showFiles(blocName, files) {
         grid.innerHTML = "<p>Aucun fichier dans ce bloc.</p>";
     } else {
         files.forEach(file => {
-            const div = document.createElement("div");
-            div.className = "card file-card";
+    const div = document.createElement("div");
+    div.className = "card file-card";
 
-            // Choisir l’icône selon l’extension
-            let ext = file.split('.').pop().toLowerCase();
-            let icon = "";
-            if(ext === "pdf") icon = "📄"; 
-            else if(ext === "doc" || ext === "docx") icon = "📝"; 
-            else icon = "📁";
+    // Choisir l’icône selon l’extension
+    let ext = file.split('.').pop().toLowerCase();
+    let icon = "";
+    if(ext === "pdf") icon = "📄"; 
+    else if(ext === "doc" || ext === "docx") icon = "📝"; 
+    else icon = "📁";
 
-            // Affichage avec bouton téléchargement
-            div.innerHTML = `
-                <span>${icon} ${file}</span>
-                <a href="${blocName}/${file}" download class="download-icon">⬇️</a>
-            `;
+    // Crée un lien pour **ouvrir le fichier**
+    const openLink = document.createElement("a");
+    openLink.href = `${blocName}/${file}`;
+    openLink.target = "_blank"; // ouvre dans une nouvelle page
+    openLink.innerText = `${icon} ${file}`;
+    openLink.className = "file-name";
 
-            grid.appendChild(div);
-        });
+    // Crée un lien pour **télécharger le fichier**
+    const downloadLink = document.createElement("a");
+    downloadLink.href = `${blocName}/${file}`;
+    downloadLink.download = file; // force le téléchargement
+    downloadLink.innerText = " ⬇️";
+    downloadLink.className = "download-icon";
+
+    // Ajoute les deux liens dans le div
+    div.appendChild(openLink);
+    div.appendChild(downloadLink);
+
+    grid.appendChild(div);
+});
     }
 
     // Ajouter bouton retour

@@ -154,3 +154,24 @@ border:none;
 padding:10px;
 
 }
+
+.file-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.file-name {
+    text-decoration: none;
+    color: black;
+}
+
+.download-icon {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
